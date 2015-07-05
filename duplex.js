@@ -23,3 +23,37 @@ and
 pull-stream-to-stream
 
 */
+
+var net = require('net')
+var toPull = require('stream-to-pull-stream')
+var pull = require('pull-stream')
+
+var server = net.createServer(function (stream) {
+  //convert into a duplex pull-stream
+  stream = toPull.duplex(stream)
+
+  pull(
+    stream,
+    pull.map(function (b) {
+      //take the input, and MAKE IT LOUD!!!
+      return b.toString().toUpperCase() + '!!!'
+    }),
+    stream
+  )
+
+}).listen(9999, function () {
+
+  var stream = toPull.duplex(net.connect(9999))
+
+  pull(
+    pull.values(['quiet stream']),
+    stream,
+    pull.drain(function (data) {
+      console.log(data.toString())
+    }, function (err) {
+      if(err) throw err
+      server.close()
+    })
+  )
+
+})

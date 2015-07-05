@@ -76,11 +76,13 @@ function map (mapper) {
     }
   }
 }
-/*
-right now, we could combine these 3 streams by passing them to each other.
 
 var source = values([1,2,3])
 var mapper = map(function (e) { return e*e })
+
+
+/*
+right now, we could combine these 3 streams by passing them to each other.
 
 and then combine these with function composition:
 

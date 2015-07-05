@@ -1,0 +1,21 @@
+{
+  "name": "pull-stream-examples",
+  "description": "",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dominictarr/pull-stream-examples",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dominictarr/pull-stream-examples.git"
+  },
+  "dependencies": {
+    "pull-stream": "^2.27.0",
+    "stream-to-pull-stream": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "prepublish": "npm ls &&  npm test",
+    "test": "set -e; for t in test/*.js; do node $t; done"
+  },
+  "author": "Dominic Tarr <dominic.tarr@gmail.com> (http://dominictarr.com)",
+  "license": "MIT"
+}
