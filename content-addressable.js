@@ -15,9 +15,8 @@ you have the correct data no matter who give it to you.
 These features make building a distributed system very
 easy, and is why you see this pattern in git, bittorrent,
 and bitcoin.
-
-(try: ls .git/objects/*/* to look inside git's CA store)
 */
+// (try: ls .git/objects/*/* to look inside git's CA store)
 
 var fs = require('fs')
 var pull = require('pull-stream')
