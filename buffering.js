@@ -35,7 +35,7 @@ There are a few ways to do this:
 
    This module wraps a pull stream transform to provide its own queuing
    mechanism, so that subsequent reads empty the queue. Its node stream analogy
-   is https://github.com/dominictarr/through2
+   is https://github.com/dominictarr/through
 */
 
 var through = require('pull-through')
