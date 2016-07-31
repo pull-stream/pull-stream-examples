@@ -52,9 +52,7 @@ sink(values([1,2,3]))
 so simple. we didn't use any librarys, yet, we have streams with 2 way back pressure.
 since the pattern is async, the source can slow down by cb'ing slower,
 and the sink can slow down by waiting longer before calling read again!
-*/
 
-/*
 okay, to be useful, we also need a way to transform inputs into different outputs.
 i.e. a transform stream.
 
@@ -143,7 +141,7 @@ function take (n) {
   return function (read) {
     return function (abort, cb) {
       //after n reads, tell the source to abort!
-      if(!--n) return read(true, cb)
+      if(!n--) return read(true, cb)
       read(null, cb)
     }
   }
@@ -164,3 +162,4 @@ Duplex streams
 
 (see duplex.js!)
 */
+
