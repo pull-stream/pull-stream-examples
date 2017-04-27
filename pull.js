@@ -24,7 +24,7 @@ function values (ary) {
 
 pull-streams don't really have a writable stream per se. "writable" implys that
 the writer is the active partner, and the stream which is written to is passive.
-(like you are when you watch TV. the TV writes it's lies into neocortex via your retinas)
+(like you are when you watch TV. the TV writes its lies into neocortex via your retinas)
 
 instead of a writable, pull streams have a "sink", that is a reader.
 here the reader is the active party, actively consuming more data.
