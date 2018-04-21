@@ -12,13 +12,19 @@ in pull-streams i like to call streams that data comes out of "sources",
 (in node they are usually called readables)
 
 */
-function values (ary) {
-  var i = 0
-  return function read(abort, cb) {
-    if(i===ary.length || abort) return cb(true)
-    cb(null, ary[i++])
-  }
-}
+
+const values = array => (abort, cb) => array.length 
+  ? cb(null, array.shift()) 
+  : cb(true)
+
+const c = console.log
+  , str = values([1,2,3])
+
+c("Pulling data from the stream...")
+str(null, c)
+str(null, c)
+str(null, c)
+str(null, c)
 
 /*
 
@@ -152,7 +158,8 @@ now we can pipe the infinite stream through this,
 and it will stop after 101 items!
 */
 
-pull(infinite(), mapper, take(101), sink)
+c("Pulling from the infinite stream...")
+pull(infinite(), mapper, take(10), sink)
 
 /*
 That covers 3 types of pull streams. Source, Transform, & Sink.
