@@ -18,13 +18,13 @@ const values = array => (abort, cb) => array.length
   : cb(true)
 
 const c = console.log
-  , str = values([1,2,3])
+  , stream = values([1,2,3])
 
 c("Pulling data from the stream...")
-str(null, c)
-str(null, c)
-str(null, c)
-str(null, c)
+stream(null, c)
+stream(null, c)
+stream(null, c)
+stream(null, c)
 
 /*
 
