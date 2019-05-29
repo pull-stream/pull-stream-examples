@@ -21,6 +21,27 @@ function values (ary) {
 }
 
 /*
+Or equivalently in the arrow function style:
+
+const values = ary => {
+  let i = 0
+  return (abort, cb) => (i < ary.length) 
+    ? cb(null, ary[i]) 
+    : cb(true)
+}
+*/
+
+// Usage example
+const show = console.log
+  , str = values([1,2,3])
+
+show("Pulling data from the stream...")
+str(null, show)
+str(null, show)
+str(null, show)
+str(null, show)
+
+/*
 
 pull-streams don't really have a writable stream per se. "writable" implys that
 the writer is the active partner, and the stream which is written to is passive.
@@ -152,6 +173,7 @@ now we can pipe the infinite stream through this,
 and it will stop after 101 items!
 */
 
+show("Pulling from the infinite stream...")
 pull(infinite(), mapper, take(101), sink)
 
 /*
