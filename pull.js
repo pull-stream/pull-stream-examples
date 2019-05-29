@@ -21,11 +21,14 @@ function values (ary) {
 }
 
 /*
-Or equivalently in arrow function style:
+Or equivalently in the arrow function style:
 
-const values = array => (abort, cb) => array.length 
-    ? cb(null, array.shift()) 
+const values = ary => {
+  let i = 0
+  return (abort, cb) => (i < ary.length) 
+    ? cb(null, ary[i]) 
     : cb(true)
+}
 */
 
 // Usage example
